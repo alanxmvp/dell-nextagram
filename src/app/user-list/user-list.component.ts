@@ -15,7 +15,7 @@ interface User {
 export class UserListComponent implements OnInit {
   users: User[] = []
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getUsers().subscribe(response => {

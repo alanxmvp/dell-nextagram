@@ -1,0 +1,29 @@
+<div id="container" *ngFor="let image of images; let i=index">
+  <div class="postcard" *ngIf="i<1">
+    <div class="image" [style.background-image]="'url('+image+')'">
+    </div>
+    <div>
+      <button (click)="addLike()"><img src="./assets/like-flat.png" height="25px" width="25px"></button>
+      {{likeCount}} Likes
+    </div>
+    <div>
+      <p><b>{{username}}</b> Nice scene !!!</p>
+    </div>
+    <div class="postcomment">
+      <div>
+        <ul>
+          <li *ngFor='let comment of comments'>{{comment.creator}} - {{comment.commentDesc}}</li>
+        </ul>
+      </div>
+      <div>
+        <form [formGroup]="comment" (ngSubmit)="onSubmit()">
+          <input type="text" formControlName="commentDesc" size="50" />
+          <input type="hidden" formControlName="creator" />&nbsp;
+          <input type="submit" value="Post" />
+        </form>
+        <!-- <input type="text" size="100" #comment>&nbsp;
+        <button (click)="addComment(comment.value)">Post</button> -->
+      </div>
+    </div>
+  </div>
+</div>

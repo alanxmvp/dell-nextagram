@@ -10,16 +10,18 @@ import { ActivatedRoute } from '@angular/router'
 export class UserDetailComponent implements OnInit {
   images: string[] = []
   username: string
+  userId2: string
 
   constructor(
     private userService: UserService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     const userId = this.route.snapshot.params.userId
+    this.userId2 = this.route.snapshot.params.userId
     this.username = this.route.snapshot.params.username
-    
+
     this.userService.getUserImages(userId).subscribe(response => {
       this.images = response as string[]
     })

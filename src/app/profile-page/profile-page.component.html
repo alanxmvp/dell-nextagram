@@ -1,0 +1,11 @@
+<div id="container1">
+  <div id="userdetail" *ngFor="let user of users">
+    User Name: {{user.userName}}<br><br>
+    Description: {{user.userDesc}}<br><br>
+    Blog Link: {{user.blogLink}}<br><br>
+    Facebook Link: {{user.fbLink}}<br><br>
+    Email Address: {{user.email}}<br><br>
+
+    <a routerLink="/edit"><button>Edit</button></a>
+  </div>
+</div>
